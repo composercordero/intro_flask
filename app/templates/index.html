@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Intro</title>
+</head>
+<body>
+
+    <h1>Hello World!</h1>
+    <h4>Welcome {{first_name}}</h4> 
+    <!-- Double curly brackets allow the variable -->
+
+    {% if first_name == 'Carlos'%}
+        <h5>Hello</h5>
+    {% else %}
+        <h5>Goodbye</h5>
+    {% endif %}
+    <!-- Curly brackets and % allow to inject python -->
+
+    <ul>
+    {% for num in numbers %}
+        <li>{{ num }}</li>
+    {% endfor %}
+    </ul>
+<!-- {{ numbers }} -->
+
+</body>
+</html>
