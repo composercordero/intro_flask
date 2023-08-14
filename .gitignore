@@ -1,0 +1,4 @@
+# Ignore the venv
+
+venv/
+__pycache__/
