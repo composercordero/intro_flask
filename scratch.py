@@ -19,3 +19,7 @@ def say_goodbye():
     print('goodbye')
 
 say_goodbye()
+
+from test import format_name
+
+print(format_name('carlos', 'cordero'))
