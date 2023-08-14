@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %} Sign Up {% endblock title %}
+
+{% block header %}
+<h1>Sign Up Here</h1>
+{% endblock header %}
+
+{% block content %}
+    <form action="">
+        
+        <label for="username">Username</label>
+        <input type="text" name="username" class="form-control" placeholder ="Enter username">
+
+        <label for="password">Password</label>
+        <input type="password" name="username" class="form-control" placeholder ="Enter password">
+
+        <input type="submit" value="Sign Up" class="ntn btn-outline-primary w-100">
+
+    </form>
+{% endblock content %}

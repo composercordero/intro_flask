@@ -1,51 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask Intro</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-</head>
-<body>
+{% extends 'base.html' %}
 
-    {% include 'nav.html' %}
+    {% block title %} Home {% endblock title %}
 
-    <div class="row">
-        <div class="col text-center">
+    {% block header %}
             <h1>Hello World!</h1>
-            <h4>Welcome {{first_name}}</h4> 
-            <!-- Double curly brackets allow the variable -->
-        </div>
+            <h4>Welcome {{ first_name }}</h4>
+            {% if first_name=='Brian' %}
+                <h5>Hello</h5>
+            {% else %}
+                <h5>Goodbye</h5>
+            {% endif %}
+    {% endblock header %}
 
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <ul>
-                        {% for num in numbers %}
-                            <li>{{ num }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- {% if first_name == 'Carlos'%}
-        <h5>Hello</h5>
-    {% else %}
-        <h5>Goodbye</h5>
-    {% endif %}
-    Curly brackets and % allow to inject python -->
-
-    <!-- <ul>
-    {% for num in numbers %}
-        <li>{{ num }}</li>
-    {% endfor %}
-    </ul> -->
-<!-- {{ numbers }} -->
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
-</html>
+    {% block content %}
+        <ul>
+            {% for num in numbers %}
+                <li>{{ num }}</li>
+            {% endfor %}
+        </ul>
+     {% endblock content %}
