@@ -21,6 +21,7 @@ def signup():
         password = form.password.data
         print(first_name, last_name, username, email, password)
 
+        # redirect back to the home page    
         return redirect(url_for('index'))
     
     return render_template('signup.html', form=form)
