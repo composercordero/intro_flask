@@ -1,6 +1,7 @@
-from app import app
+from app import app, db
 from flask import render_template, redirect, url_for
 from app.forms import SignUpForm
+from app.models import User
 
 
 # Add a route
@@ -19,8 +20,18 @@ def signup():
         username = form.username.data
         email = form.email.data
         password = form.password.data
-        print(first_name, last_name, username, email, password)
+        
+        # Check User table to see if there are any users with username or email
+        check_user = db.session.execute(db.select(User).where( (User.username==username) | (User.email==email) )).scalar()
+        if check_user:
+            print('A user with that username/password already exists')
+            return redirect(url_for('signup'))
 
+        # Create a new instance of the User class with data from form
+        new_user = User(first_name = first_name, last_name = last_name, username = username, email = email, password = password)
+        # Add the new_user object to the database
+        db.session.add(new_user)
+        db.session.commit()
         # redirect back to the home page    
         return redirect(url_for('index'))
     
