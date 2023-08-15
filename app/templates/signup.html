@@ -3,19 +3,42 @@
 {% block title %} Sign Up {% endblock title %}
 
 {% block header %}
-<h1>Sign Up Here</h1>
+    <h1>Sign Up Here</h1>
 {% endblock header %}
 
 {% block content %}
-    <form action="">
+<div class="col">
+    <div class="card mt-3">
+        <div class="card-body">
+            <form action="" method="post">
+
+                {{ form.csrf_token }}
+
+                {{ form.first_name.label }}
+                {{ form.first_name(class='form-control', placeholder='Enter First Name') }}
         
-        <label for="username">Username</label>
-        <input type="text" name="username" class="form-control" placeholder ="Enter username">
+                {{ form.last_name.label }}
+                {{ form.last_name(class='form-control', placeholder='Enter Last Name') }}
+        
+                {{ form.username.label }}
+                {{ form.username(class='form-control', placeholder='Enter Username') }}
+        
+                {{ form.email.label }}
+                {{ form.email(class='form-control', placeholder='Enter Email') }}
+        
+                {{ form.password.label }}
+                {{ form.password(class='form-control', placeholder='Enter Password') }}
+        
+                {{ form.confirm_pass.label }}
+                {{ form.confirm_pass(class='form-control', placeholder='Confirm Password') }}
 
-        <label for="password">Password</label>
-        <input type="password" name="username" class="form-control" placeholder ="Enter password">
+                {{ form.submit(class='btn btn-danger mt-3')}}
+        
 
-        <input type="submit" value="Sign Up" class="ntn btn-outline-primary w-100">
+            </form>
+        </div>
 
-    </form>
+    </div>
+</div>
+
 {% endblock content %}

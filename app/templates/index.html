@@ -1,21 +1,15 @@
 {% extends 'base.html' %}
 
-    {% block title %} Home {% endblock title %}
+{% block title %} Home {% endblock title %}
 
-    {% block header %}
-            <h1>Hello World!</h1>
-            <h4>Welcome {{ first_name }}</h4>
-            {% if first_name=='Brian' %}
-                <h5>Hello</h5>
-            {% else %}
-                <h5>Goodbye</h5>
-            {% endif %}
-    {% endblock header %}
+{% block header %}
+    <h1>Welcome to the Carlos' Blog</h1>
+    <h4>Please Sign Up or Log In to use the Blog</h4>
+{% endblock header %}
 
-    {% block content %}
-        <ul>
-            {% for num in numbers %}
-                <li>{{ num }}</li>
-            {% endfor %}
-        </ul>
-     {% endblock content %}
+{% block content %}
+    <div class="col-12">
+        <h5>Posts Go Here</h5>
+    </div>
+{% endblock content %}
+
