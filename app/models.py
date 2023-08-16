@@ -11,6 +11,7 @@ class User(db.Model):
     username = db.Column(db.String(75), nullable = False, unique = True)
     password = db.Column(db.String, nullable = False)
     date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
+    posts = db.relationship('Post', backref = 'author')
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
