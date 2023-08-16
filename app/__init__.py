@@ -24,3 +24,13 @@ migrate = Migrate(app, db)
 from app import routes, models
 
 # Must be imported at the bottom of the file
+
+# Packages used today:
+# pip install flask-migrate flask-wtf flask-sqlalchemy python-dotenv
+# The flask database commands are:
+# flask db init
+# This initializes a migrations  folder which will store all your database metadata
+# flask db migrate
+# This command detects changes made to your database and makes a migration (creates a new version of your db changes)
+# flask db upgrade
+# This command will apply your changes to the database.
