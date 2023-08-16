@@ -4,7 +4,12 @@
 
 {% block header %}
     <h1>Carlos' Blog</h1>
-    <h4>Please Sign Up or Log In to use the Blog</h4>
+    {% if current_user.is_authenticated %}
+        <h4>Hello {{ current_user.first_name }}!</h4>
+    {% else %}
+        <h4>Please Sign Up or Log In to use the Blog</h4>
+    {% endif %}
+    
 {% endblock header %}
 
 {% block content %}

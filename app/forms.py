@@ -11,6 +11,11 @@ class SignUpForm(FlaskForm):
     confirm_pass = PasswordField('Confirm Password', validators=[InputRequired(), EqualTo('password')])
     submit = SubmitField('Sign Up')
 
+class LoginForm(FlaskForm):
+    username = StringField('Username', validators=[InputRequired()])
+    password = PasswordField('Password', validators=[InputRequired()])
+    submit = SubmitField('Sign Up')
+
 class PostForm(FlaskForm):
     title = StringField('Title', validators=[InputRequired()])
     body = TextAreaField('Body', validators=[InputRequired()])
