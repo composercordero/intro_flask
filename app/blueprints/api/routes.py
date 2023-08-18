@@ -57,3 +57,28 @@ def create_post():
     db.session.commit()
 
     return new_post.to_dict(), 201
+
+
+@api.route('/posts/<post_id>', methods = ['PUT'])
+@token_auth.login_required
+def edit_post(post_id):
+    # Check to see that the request body is JSON
+    if not request.is_json:
+        return {'error': 'Your content-type must be application/json'}, 400
+    # Get the post from the database
+
+    post = db.session.get(Post, post_id)
+    if post is None:
+        return {'error': f'Post with an ID of {post_id} does not exist'}, 404
+    
+    # Make sure authenticated user is the post author
+    current_user = token_auth.current_user()
+    if post.author != current_user:
+        return {'error': 'You do not have permission to edit this post.'}, 403
+    
+    data = request.json
+    for field in data:
+        if field in {'title', 'body', 'image_url'}:
+            setattr(post, field, data[field])
+    db.session.commit()
+    return post.to_dict()
