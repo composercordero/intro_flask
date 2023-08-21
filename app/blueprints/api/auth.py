@@ -26,4 +26,4 @@ def verify(token):
 
 @token_auth.error_handler
 def handle_error(status):
-    return {'error': 'You do not have a valid token.'}, status
+    return {'error:' 'You do not have a valid token'}, status
