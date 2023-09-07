@@ -45,8 +45,8 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
-            'first_name': self.first_name,
-            'last_name': self.last_name,
+            'firstName': self.first_name,
+            'lastName': self.last_name,
             'email': self.email,
             'username': self.username
         }
@@ -77,8 +77,8 @@ class Post(db.Model):
             'id': self.id,
             'title': self.title,
             'body': self.body,
-            'image_url': self.image_url,
-            'date_created': self.date_created,
-            'user_id': self.user_id,
+            'imageUrl': self.image_url,
+            'dateCreated': self.date_created,
+            'userId': self.user_id,
             'author': self.author.to_dict()
         }

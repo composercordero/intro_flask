@@ -3,6 +3,7 @@ from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+from flask_cors import CORS
 
 
 # Create an instance of the flask class
@@ -10,6 +11,9 @@ app = Flask(__name__)
 
 # Configure our app with a secret key
 app.config.from_object(Config)
+
+# Add Flask CORS
+CORS(app, resources={r"/api/*":{'origins':'*'}})
 
 # Create an instance of SQLAlchemy to represent the database
 db = SQLAlchemy(app)
